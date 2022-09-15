@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo.svg';
-import { Navbar, Input } from '@nextui-org/react'
+import { Navbar, Input, Divider } from '@nextui-org/react'
 
 const Menu = () => {
     return (
@@ -13,7 +13,7 @@ const Menu = () => {
                     <Navbar.Link href="/">Home</Navbar.Link>
                     <Navbar.Link href="/rick">Rick</Navbar.Link>
                     <Navbar.Link href='/morty'>Morty</Navbar.Link>
-                    <Navbar.Link href='fav'>Fav</Navbar.Link>
+                    <Navbar.Link href='fav'><i class="pi pi-heart"></i></Navbar.Link>
                     <Navbar.Item
                         css={{
                             "@xsMax": {
@@ -39,6 +39,7 @@ const Menu = () => {
                     </Navbar.Item>
                 </Navbar.Content>
             </Navbar>
+            <Divider />
         </div>
     )
 }

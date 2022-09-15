@@ -1,15 +1,20 @@
 import './App.css';
-import Menu from './components/Menu';
+import Home from './components/Home'
+import Fav from './components/Fav'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div>
-          <Menu />
-        </div>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Router>
+          <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/fav" element={<Fav />}></Route>
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 
