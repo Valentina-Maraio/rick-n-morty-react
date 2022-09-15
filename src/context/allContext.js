@@ -20,3 +20,19 @@ export const AllCharactersProvider = ({children}) => {
         <AllCharactersContext.Provider value={[allCharacters, setAllCharacters]}>{children}</AllCharactersContext.Provider>
     )
 }
+
+
+
+export const CardContext = createContext();
+
+export const CardProvider = ({children}) => {
+  const [items, setItems] = useState([]);
+
+  const addToFav = (name, status, gender, image) => {
+    setItems((prevState) => [...prevState, { name, status, gender, image}])
+  };
+
+  return (
+    <CardContext.Provider value={{ items, setItems, addToFav}}>{children}</CardContext.Provider>
+  )
+}

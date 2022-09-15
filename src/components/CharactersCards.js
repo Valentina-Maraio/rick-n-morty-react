@@ -1,17 +1,19 @@
 import React, { useContext } from 'react'
 import { Card, Col, Text, Container, Grid, Row, Button } from "@nextui-org/react";
 import { AllCharactersContext } from '../context/allContext';
+import { CardContext } from '../context/allContext';
 
-const CharactersCards = () => {
+const CharactersCards = ({ name, status, gender, image }) => {
   const [allCharacters] = useContext(AllCharactersContext);
+  const { addToFav } = useContext(CardContext)
 
   return (
-    <Container>
+    <Container sm>
       <Grid.Container gap={2} justify="center">
         {allCharacters.map((item) => {
           return (
             <Grid xs={6}>
-              <Card>
+              <Card key={item.id}>
                 <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                   <Col>
                     <Text size={20} weight="bold" transform="uppercase" color="black">
@@ -49,8 +51,10 @@ const CharactersCards = () => {
                     </Col>
                     <Col>
                       <Row justify="flex-end">
-                        <Button flat auto rounded color="secondary">
-                          <i class="pi pi-heart"></i>
+                        <Button
+                        onPress={() => addToFav(name, status, gender)}
+                        flat auto rounded color="secondary">
+                          <i className="pi pi-heart"></i>
                         </Button>
                       </Row>
                     </Col>
