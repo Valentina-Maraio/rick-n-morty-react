@@ -52,7 +52,7 @@ const CharactersCards = ({ name, status, gender, image }) => {
                     <Col>
                       <Row justify="flex-end">
                         <Button
-                        onPress={() => addToFav(name, status, gender)}
+                        onPress={() => addToFav(item.name, item.status, item.gender, item.image)}
                         flat auto rounded color="secondary">
                           <i className="pi pi-heart"></i>
                         </Button>
